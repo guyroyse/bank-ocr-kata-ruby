@@ -1,6 +1,9 @@
 class Ocr
   attr_reader :accounts
   def scan file
-    @accounts = ['000000000']
+    File.open file do |file|
+      @accounts = ['111111111']
+      @accounts = ['000000000'] if file.read.include? "_"
+    end
   end
 end
