@@ -12,4 +12,9 @@ describe Ocr do
     subject.accounts[0].should == '111111111'
   end
 
+  it "parses and account number of all 2s" do
+    subject.scan 'spec/222222222.txt'
+    subject.accounts[0].should == '222222222'
+  end
+
 end
