@@ -47,4 +47,8 @@ describe Ocr do
     check_account_number '999999999'
   end
 
+  it "parses an account number containing a sequence of numbers" do
+    check_account_number '123456789'
+  end
+
 end

@@ -51,22 +51,38 @@ $digits = {
   NINE  => '9'
 }
 
+DIGIT_WIDTH = 3
+DIGIT_HEIGHT = 3
+ACCOUNT_NUMBER_LENGTH = 9
+LINE_LENGTH = DIGIT_WIDTH * ACCOUNT_NUMBER_LENGTH + 1
+
 class Ocr
   attr_reader :accounts
   def scan file
     File.open file do |file|
-      scanned = file.read
-      digit = extract_digit(scanned)
-      number = lookup_number(digit)
-      @accounts = [number * 9]
+      @scanned = file.read
+      account = extract_account_number
+      @accounts = [account]
     end
   end
-  def extract_digit s
-    (0..2).reduce ''  do |digit, count|
-      digit + s[count * 28, 3]
+  def extract_account_number
+    (0...ACCOUNT_NUMBER_LENGTH).reduce '' do |account, position|
+      digit = extract_digit position
+      account << lookup_number(digit)
+    end
+  end
+  def extract_digit position
+    (0...DIGIT_HEIGHT).reduce ''  do |digit, line|
+      offset = calculate_offset line, position
+      digit << @scanned[offset, DIGIT_WIDTH]
     end
   end
   def lookup_number digit
     $digits[digit]
+  end
+  def calculate_offset line, position
+    line_offset = line * LINE_LENGTH
+    digit_offset = position * DIGIT_WIDTH
+    offset = line_offset + digit_offset
   end
 end
