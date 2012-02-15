@@ -30,6 +30,10 @@ SEVEN = ' _ ' +
         '  |' +
         '  |'
 
+EIGHT = ' _ ' +
+        '|_|' +
+        '|_|'
+
 $digits = {
   ZERO  => '0',
   ONE   => '1',
@@ -38,7 +42,8 @@ $digits = {
   FOUR  => '4',
   FIVE  => '5',
   SIX   => '6',
-  SEVEN => '7'
+  SEVEN => '7',
+  EIGHT => '8'
 }
 
 class Ocr
