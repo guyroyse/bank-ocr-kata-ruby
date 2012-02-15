@@ -51,4 +51,8 @@ describe Ocr do
     check_account_number '123456789'
   end
 
+  it "parses an account number containing differing digits" do
+    check_account_number '340021498'
+  end
+
 end
