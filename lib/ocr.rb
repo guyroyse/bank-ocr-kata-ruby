@@ -14,11 +14,16 @@ THREE = ' _ ' +
         ' _|' +
         ' _|'
 
+FOUR  = '   ' +
+        '|_|' +
+        '  |'
+
 $digits = {
   ZERO  => '0',
   ONE   => '1',
   TWO   => '2',
-  THREE => '3'
+  THREE => '3',
+  FOUR  => '4'
 }
 
 class Ocr
