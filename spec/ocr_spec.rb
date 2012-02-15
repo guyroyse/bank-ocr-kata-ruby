@@ -43,4 +43,8 @@ describe Ocr do
     check_account_number '888888888'
   end
 
+  it "parses and account number of all 9s" do
+    check_account_number '999999999'
+  end
+
 end
