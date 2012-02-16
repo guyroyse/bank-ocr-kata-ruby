@@ -58,18 +58,27 @@ LINE_LENGTH = DIGIT_WIDTH * ACCOUNT_NUMBER_LENGTH + 1
 
 class Ocr
   attr_reader :accounts
+  def initialize
+    @accounts = []
+  end
   def scan file
-    File.open file do |file|
-      @scanned = file.read
-      account = extract_account_number
-      @accounts = [account]
+    read_file file
+    account = extract_account_number
+    (0...count_account_numbers).each do
+      @accounts << account
     end
+  end
+  def read_file file
+    File.open file do |file| @scanned = file.read end
   end
   def extract_account_number
     (0...ACCOUNT_NUMBER_LENGTH).reduce '' do |account, position|
       digit = extract_digit position
       account << lookup_number(digit)
     end
+  end
+  def count_account_numbers
+    count_lines / 4
   end
   def extract_digit position
     (0...DIGIT_HEIGHT).reduce ''  do |digit, line|
@@ -79,6 +88,9 @@ class Ocr
   end
   def lookup_number digit
     $digits[digit]
+  end
+  def count_lines
+    lines = @scanned.count "\n"
   end
   def calculate_offset line, position
     line_offset = line * LINE_LENGTH
