@@ -61,9 +61,16 @@ describe Ocr do
 
   context "when handed a file with muliple account numbers" do
 
-    it "returns the correct number of accounts" do
+    before :each do
       subject.scan "spec/multiple.txt"
+    end
+
+    it "returns the correct number of accounts" do
       subject.accounts.length.should == 3
+    end
+
+    it "returns the correct account number for the first account" do
+      subject.accounts[0].should == '340021496'
     end
 
   end
