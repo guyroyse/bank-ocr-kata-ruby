@@ -1,4 +1,4 @@
-require 'digits'
+require 'digit'
 
 DIGIT_WIDTH = 3
 DIGIT_HEIGHT = 3
