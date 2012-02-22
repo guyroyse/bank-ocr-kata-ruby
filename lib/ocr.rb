@@ -4,7 +4,7 @@ DIGIT_WIDTH = 3
 DIGIT_HEIGHT = 3
 ACCOUNT_NUMBER_LENGTH = 9
 LINE_LENGTH = DIGIT_WIDTH * ACCOUNT_NUMBER_LENGTH + 1
-ACCT_LENGTH = LINE_LENGTH * 4
+ACCOUNT_LENGTH = LINE_LENGTH * 4
 
 class Ocr
   attr_reader :accounts
@@ -28,8 +28,8 @@ class Ocr
     lines = @scanned.count "\n"
   end
   def extract_account_text acct_position
-    acct_offset = acct_position * ACCT_LENGTH
-    @scanned[acct_offset, ACCT_LENGTH]
+    acct_offset = acct_position * ACCOUNT_LENGTH
+    @scanned[acct_offset, ACCOUNT_LENGTH]
   end
 end
 
