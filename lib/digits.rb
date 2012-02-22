@@ -1,54 +1,65 @@
-ZERO   = ' _ ' +
-         '| |' +
-         '|_|'
+class Digit
 
-ONE    = '   ' +
-         '  |' +
-         '  |'
+  ZERO   = ' _ ' +
+           '| |' +
+           '|_|'
 
-TWO    = ' _ ' +
-         ' _|' +
-         '|_ '
+  ONE    = '   ' +
+           '  |' +
+           '  |'
 
-THREE = ' _ ' +
-        ' _|' +
-        ' _|'
+  TWO    = ' _ ' +
+           ' _|' +
+           '|_ '
 
-FOUR  = '   ' +
-        '|_|' +
-        '  |'
+  THREE = ' _ ' +
+          ' _|' +
+          ' _|'
 
-FIVE  = ' _ ' +
-        '|_ ' +
-        ' _|'
+  FOUR  = '   ' +
+          '|_|' +
+          '  |'
 
-SIX   = ' _ ' +
-        '|_ ' +
-        '|_|'
+  FIVE  = ' _ ' +
+          '|_ ' +
+          ' _|'
 
-SEVEN = ' _ ' +
-        '  |' +
-        '  |'
+  SIX   = ' _ ' +
+          '|_ ' +
+          '|_|'
 
-EIGHT = ' _ ' +
-        '|_|' +
-        '|_|'
+  SEVEN = ' _ ' +
+          '  |' +
+          '  |'
 
-NINE  = ' _ ' +
-        '|_|' +
-        ' _|'
+  EIGHT = ' _ ' +
+          '|_|' +
+          '|_|'
 
+  NINE  = ' _ ' +
+          '|_|' +
+          ' _|'
 
-$digits = {
-  ZERO  => '0',
-  ONE   => '1',
-  TWO   => '2',
-  THREE => '3',
-  FOUR  => '4',
-  FIVE  => '5',
-  SIX   => '6',
-  SEVEN => '7',
-  EIGHT => '8',
-  NINE  => '9'
-}
+  DIGITS = {
+    ZERO  => '0',
+    ONE   => '1',
+    TWO   => '2',
+    THREE => '3',
+    FOUR  => '4',
+    FIVE  => '5',
+    SIX   => '6',
+    SEVEN => '7',
+    EIGHT => '8',
+    NINE  => '9'
+  }
 
+  attr_reader :value
+
+  def initialize text
+    @value = lookup_number text
+  end
+  def lookup_number text
+    DIGITS[text]
+  end
+
+end
