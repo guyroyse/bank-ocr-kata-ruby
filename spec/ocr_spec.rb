@@ -6,7 +6,7 @@ describe Ocr do
 
     def check_account_number number
       subject.scan "spec/#{number}.txt"
-      subject.accounts[0].should == number
+      subject.accounts[0].number.should == number
     end
 
     it "parses an account number of all 0s" do
@@ -70,15 +70,15 @@ describe Ocr do
     end
 
     it "returns the correct account number for the first account" do
-      subject.accounts[0].should == '340021496'
+      subject.accounts[0].number.should == '340021496'
     end
 
     it "returns the correct account number for a middle account" do
-      subject.accounts[1].should == '340021497'
+      subject.accounts[1].number.should == '340021497'
     end
 
     it "returns the correct account number for the last account" do
-      subject.accounts[2].should == '340021498'
+      subject.accounts[2].number.should == '340021498'
     end
 
   end

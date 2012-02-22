@@ -15,7 +15,7 @@ class Ocr
     read_file file
     (0...count_account_numbers).each do |account|
       account_text = extract_account_text account
-      @accounts << Account.new(account_text).number
+      @accounts << Account.new(account_text)
     end
   end
   def read_file file
