@@ -73,6 +73,14 @@ describe Ocr do
       subject.accounts[0].should == '340021496'
     end
 
+    it "returns the correct account number for a middle account" do
+      subject.accounts[1].should == '340021497'
+    end
+
+    it "returns the correct account number for the last account" do
+      subject.accounts[2].should == '340021498'
+    end
+
   end
 
 end
