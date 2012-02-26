@@ -13,7 +13,7 @@ class Account
     end
   end
   def checksum
-    1
+    @number[-1].to_i + @number[-2,1].to_i * 2
   end
   def extract_digit_text digit_position
     (0...DIGIT_HEIGHT).reduce ''  do |digit, line|

@@ -89,9 +89,14 @@ describe Account do
 
   context "when calculating the checksum" do
 
-    it "returns the last digit as the checksum" do
+    it "adds the last digit to the checksum" do
       subject.number = '000000001'
       subject.checksum.should == 1
+    end
+
+    it "adds double the next to the last digit to the checksum" do
+      subject.number = '000000011'
+      subject.checksum.should == 3
     end
 
   end
