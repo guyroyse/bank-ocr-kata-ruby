@@ -99,6 +99,11 @@ describe Account do
       subject.checksum.should == 3
     end
 
+    it "adds triple the third to the last digit to the checksum" do
+      subject.number = '000000111'
+      subject.checksum.should == 6
+    end
+
   end
 
 end
