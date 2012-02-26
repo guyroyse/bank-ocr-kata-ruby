@@ -104,6 +104,11 @@ describe Account do
       subject.checksum.should == 6
     end
 
+    it "it removes all 11s from the total of the checksum" do
+      subject.number = '000011111'
+      subject.checksum.should == 4
+    end
+
   end
 
 end

@@ -13,9 +13,10 @@ class Account
     end
   end
   def checksum
-    (1..ACCOUNT_NUMBER_LENGTH).reduce 0 do |checksum, digit|
+    total = (1..ACCOUNT_NUMBER_LENGTH).reduce 0 do |checksum, digit|
       checksum + @number[digit*-1].to_i * digit
     end
+    total % 11
   end
   def extract_digit_text digit_position
     (0...DIGIT_HEIGHT).reduce ''  do |digit, line|
