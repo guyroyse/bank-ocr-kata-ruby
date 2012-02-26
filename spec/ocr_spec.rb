@@ -84,3 +84,16 @@ describe Ocr do
   end
 
 end
+
+describe Account do
+
+  context "when calculating the checksum" do
+
+    it "returns the last digit as the checksum" do
+      subject.number = '000000001'
+      subject.checksum.should == 1
+    end
+
+  end
+
+end

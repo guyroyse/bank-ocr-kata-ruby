@@ -11,7 +11,7 @@ class Ocr
     read_file file
     (0...count_account_numbers).each do |account|
       account_text = extract_account_text account
-      @accounts << Account.new(account_text)
+      @accounts << parse_account_number(account_text)
     end
   end
   def read_file file
@@ -26,6 +26,11 @@ class Ocr
   def extract_account_text acct_position
     acct_offset = acct_position * ACCOUNT_LENGTH
     @scanned[acct_offset, ACCOUNT_LENGTH]
+  end
+  def parse_account_number account_text
+    account = Account.new
+    account.parse_number account_text
+    account
   end
 end
 

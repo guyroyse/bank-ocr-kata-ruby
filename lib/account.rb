@@ -4,14 +4,16 @@ ACCOUNT_NUMBER_LENGTH = 9
 LINE_LENGTH = DIGIT_WIDTH * ACCOUNT_NUMBER_LENGTH + 1
 
 class Account
-  def initialize text
-      @text = text
-  end
-  def number
-    (0...ACCOUNT_NUMBER_LENGTH).reduce '' do |account_number, digit_position|
+  attr_accessor :number
+  def parse_number text
+    @text = text
+    @number = (0...ACCOUNT_NUMBER_LENGTH).reduce '' do |account_number, digit_position|
       digit_text = extract_digit_text digit_position
       account_number << Digit.new(digit_text).value
     end
+  end
+  def checksum
+    1
   end
   def extract_digit_text digit_position
     (0...DIGIT_HEIGHT).reduce ''  do |digit, line|
