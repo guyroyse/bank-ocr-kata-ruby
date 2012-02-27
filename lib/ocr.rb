@@ -3,7 +3,9 @@ require 'account'
 ACCOUNT_LENGTH = LINE_LENGTH * 4
 
 class Ocr
+
   attr_reader :accounts
+
   def initialize
     @accounts = []
   end
@@ -37,5 +39,6 @@ class Ocr
     account.parse_number account_text
     account
   end
+
 end
 
