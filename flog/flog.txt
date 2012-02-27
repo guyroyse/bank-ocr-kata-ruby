@@ -1,0 +1,29 @@
+   107.3: flog total
+     5.6: flog/method average
+
+    44.9: Account total
+    13.6: Account#checksum                 lib/account.rb:16
+     9.3: Account#parse_number             lib/account.rb:10
+     8.4: Account#extract_digit_text       lib/account.rb:25
+     5.5: Account#calculate_offset         lib/account.rb:31
+     4.1: Account#parse_digit              lib/account.rb:36
+     2.8: Account#valid                    lib/account.rb:22
+     1.2: Account#none
+
+    31.2: main total
+    31.2: main#none
+
+    28.2: Ocr total
+     8.1: Ocr#parse_accounts               lib/ocr.rb:21
+     4.1: Ocr#read_file                    lib/ocr.rb:16
+     3.2: Ocr#count_accounts               lib/ocr.rb:27
+     2.9: Ocr#extract_account_text         lib/ocr.rb:33
+     2.9: Ocr#parse_account                lib/ocr.rb:37
+     2.6: Ocr#scan                         lib/ocr.rb:12
+     1.8: Ocr#count_lines                  lib/ocr.rb:30
+     1.3: Ocr#initialize                   lib/ocr.rb:9
+     1.2: Ocr#none
+
+     3.0: Digit total
+     1.8: Digit#parse                      lib/digit.rb:61
+     1.2: Digit#none
