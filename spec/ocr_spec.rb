@@ -114,6 +114,11 @@ describe Account do
       subject.checksum.should == 1
     end
 
+    it "handles digits other than 1" do
+      subject.number = '987654321'
+      subject.checksum.should == 10
+    end
+
   end
 
 end
