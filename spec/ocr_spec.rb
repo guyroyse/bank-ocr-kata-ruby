@@ -109,6 +109,11 @@ describe Account do
       subject.checksum.should == 4
     end
 
+    it "uses all digits" do
+      subject.number = '111111111'
+      subject.checksum.should == 1
+    end
+
   end
 
 end
