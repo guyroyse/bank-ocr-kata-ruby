@@ -58,11 +58,8 @@ class Digit
 
   attr_reader :value
 
-  def initialize text
-    @value = lookup_number text
-  end
-  def lookup_number text
-    DIGITS[text]
+  def parse text
+    @value = DIGITS[text]
   end
 
 end

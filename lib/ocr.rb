@@ -17,8 +17,8 @@ class Ocr
     end
   end
   def parse_accounts
-    (0...count_accounts).each do |account|
-      account_text = extract_account_text account
+    (0...count_accounts).each do |account_position|
+      account_text = extract_account_text account_position
       @accounts << parse_account(account_text)
     end
   end
