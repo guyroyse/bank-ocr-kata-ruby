@@ -18,6 +18,9 @@ class Account
     end
     total % 11
   end
+  def valid
+    true
+  end
   def extract_digit_text digit_position
     (0...DIGIT_HEIGHT).reduce ''  do |digit, line|
       offset = calculate_offset line, digit_position

@@ -121,4 +121,13 @@ describe Account do
 
   end
 
+  context "when validating account number" do
+
+    it "is valid when the checksum is 0" do
+      subject.number = '111111110'
+      subject.valid.should be_true
+    end
+
+  end
+
 end
