@@ -128,6 +128,11 @@ describe Account do
       subject.valid.should be_true
     end
 
+    it "is invalid when the checksum is not 0" do
+      subject.number = '111111111'
+      subject.valid.should be_false
+    end
+
   end
 
 end
